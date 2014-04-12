@@ -260,6 +260,16 @@ public class AceEditor implements DocDisplay,
                      indentPastedRange(Range.fromPoints(start,
                                                         getSelectionEnd()));
                      break;
+                  case 'A':
+                     event.preventDefault();
+                     Position pos1 = getCursorPosition();
+                     setCursorPosition(Position.create(pos1.getRow(),0));
+                     break;
+                  case 'E':
+                     event.preventDefault();
+                     Position pos2 = getCursorPosition();
+                     setCursorPosition(Position.create(pos2.getRow(),getLength(getCurrentLineNum())));
+                     break;
                }
             }
 
