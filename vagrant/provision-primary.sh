@@ -2,8 +2,9 @@
 
 # install packages needed for development environment
 if [ ! -f /etc/redhat-release ]; then
+    export DEBIAN_FRONTEND=noninteractive
     # create local user accounts
-    /rstudio/vagrant/provision-create-users.sh
+    /opt/app/vagrant/provision-create-users.sh
 
     apt-get install -y vim
     apt-get install -y silversearcher-ag
@@ -18,5 +19,5 @@ if [ ! -f /etc/redhat-release ]; then
 fi
 
 # perform remainder of the install script as regular user
-sudo --login --set-home -u vagrant /rstudio/vagrant/provision-primary-user.sh
+sudo --login --set-home -u vagrant /opt/app/vagrant/provision-primary-user.sh
 

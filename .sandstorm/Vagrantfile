@@ -1,6 +1,3 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
 # Guess at a reasonable name for the VM based on the folder vagrant-spk is
 # run from.  The timestamp is there to avoid conflicts if you have multiple
 # folders with the same name.
@@ -31,7 +28,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the bundled installer.
   config.vm.provision "shell", inline: "sudo bash /opt/app/.sandstorm/global-setup.sh", keep_color: true
   # Then, do stack-specific and app-specific setup.
-  config.vm.provision "shell", inline: "sudo bash /opt/app/.sandstorm/setup.sh", keep_color: true
+  #config.vm.provision "shell", inline: "sudo bash /opt/app/.sandstorm/setup.sh", keep_color: true
+  config.vm.provision "shell", path: "../vagrant/bootstrap-debian.sh", args: 6080
+  config.vm.provision "shell", path: "../vagrant/provision-primary.sh"
 
   # Shared folders are configured per-provider since vboxsf can't handle >4096 open files,
   # NFS requires privilege escalation every time you bring a VM up,

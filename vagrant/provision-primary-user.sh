@@ -2,33 +2,28 @@
 
 # install dependencies
 export QT_SDK_DIR=/home/vagrant/Qt5.4.0
-cd /rstudio/dependencies/linux
+cd /opt/app/dependencies/linux
 
 LINUX_SYS=debian
 if [ -f /etc/redhat-release ]; then
     LINUX_SYS=yum
 fi
 
-./install-dependencies-$LINUX_SYS
+./install-dependencies-$LINUX_SYS --exclude-qt-sdk
 
 # resiliency
-./install-dependencies-$LINUX_SYS
+./install-dependencies-$LINUX_SYS --exclude-qt-sdk
 
 # run overlay script if present
 if [ -f ./install-overlay-$LINUX_SYS ]; then
     ./install-overlay-$LINUX_SYS
 fi 
 
-cd /rstudio/vagrant
+cd /opt/app/vagrant
 
 # configure a basic c/c++ editing experience inside the VM 
-./provision-editor.sh
+#./provision-editor.sh
 
 # run common user provisioning script
 ./provision-common-user.sh
-
-# create build folder and run cmake
-mkdir -p /home/vagrant/rstudio-build
-cd /home/vagrant/rstudio-build
-cmake ~/rstudio/src/cpp -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 

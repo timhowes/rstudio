@@ -7,7 +7,7 @@ if [ -f /etc/redhat-release ]; then
 else
     apt-get install -y whois
 fi
-for userdetails in `cat /rstudio/vagrant/rstudiousers.txt`
+for userdetails in `cat /opt/app/vagrant/rstudiousers.txt`
 do
     user=`echo $userdetails | cut -f 1 -d ,`
     passwd=`echo $userdetails | cut -f 2 -d ,`

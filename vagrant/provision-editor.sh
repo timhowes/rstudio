@@ -1,5 +1,5 @@
 # configure a basic c/c++ editing experience inside the VM 
-cp /rstudio/vagrant/vimrc /home/vagrant/.vimrc
+cp /opt/app/vagrant/vimrc /home/vagrant/.vimrc
 mkdir -p /home/vagrant/.vimbackup
 mkdir -p /home/vagrant/.vimswap
 mkdir -p /home/vagrant/.vim/bundle/

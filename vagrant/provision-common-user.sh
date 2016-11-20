@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # add trusted key 
-if [ -f /rstudio/vagrant/vagrant_key_rsa.pub ]; then
-    cat /rstudio/vagrant/vagrant_key_rsa.pub >> ~/.ssh/authorized_keys
+if [ -f /opt/app/vagrant/vagrant_key_rsa.pub ]; then
+    cat /opt/app/vagrant/vagrant_key_rsa.pub >> ~/.ssh/authorized_keys
 fi
 
 # set appropriate permissions on keys
