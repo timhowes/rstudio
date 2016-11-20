@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: "sudo bash /opt/app/.sandstorm/global-setup.sh", keep_color: true
   # Then, do stack-specific and app-specific setup.
   #config.vm.provision "shell", inline: "sudo bash /opt/app/.sandstorm/setup.sh", keep_color: true
-  config.vm.provision "shell", path: "../vagrant/bootstrap-debian.sh", args: 6080
+  config.vm.provision "shell", path: "../vagrant/bootstrap-debian.sh", args: 8000
   config.vm.provision "shell", path: "../vagrant/provision-primary.sh"
 
   # Shared folders are configured per-provider since vboxsf can't handle >4096 open files,
